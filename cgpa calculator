@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip> // for setprecision
+using namespace std;
+
+int main() {
+    int n;
+    float credit, grade, totalCredits = 0, totalPoints = 0;
+
+    cout << "Enter number of courses: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        cout << "\nCourse " << i << ":\n";
+        cout << "  Enter credit hours: ";
+        cin >> credit;
+        cout << "  Enter grade point (e.g., 4.0, 3.7, 3.0...): ";
+        cin >> grade;
+
+        totalCredits += credit;
+        totalPoints += credit * grade;
+    }
+
+    if (totalCredits == 0) {
+        cout << "Total credits cannot be zero.\n";
+        return 1;
+    }
+
+    float cgpa = totalPoints / totalCredits;
+    cout << fixed << setprecision(2);
+    cout << "\nYour CGPA is: " << cgpa << endl;
+
+    return 0;
+}
